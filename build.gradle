@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'telegramBot'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter:2.6.6'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.6'
+	implementation 'org.telegram:telegrambots-spring-boot-starter:5.7.1'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2.2'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+configurations {
+	testImplementation.exclude group: 'com.vaadin.external.google', module: 'android-json'
+}
